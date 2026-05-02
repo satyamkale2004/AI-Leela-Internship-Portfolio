@@ -1,0 +1,1197 @@
+/* ================================================================
+1. GLOBAL VARIABLES & BASE STYLES
+================================================================
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap");
+
+:root {
+  /* Core Theme Colors */
+  --primary-bg: #111111;
+  --secondary-bg: #1a1a1a;
+  --primary-text: #bdbdbd;
+  --title-color: #ffffff;
+
+  /* Accent Colors (Lilac/Purple) */
+  --accent-color: #a8a7f8;
+  --light-accent: #c099e8;
+  --dark-accent: #7a6df1;
+
+  /* Universal Elements */
+  --border-color: #2c2c2c;
+  --logo-s-color: var(--accent-color);
+  --logo-atyam-color: var(--title-color);
+
+  /* Gradients & Shadows */
+  --universal-gradient: linear-gradient(90deg, #e9a0f8 0%, #a8a7f8 50%, #e9a0f8 100%);
+  --card-element-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  font-family: "Poppins", sans-serif;
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  line-height: 1.6;
+}
+
+/* ================================================================
+2. UTILITIES (Sections & Typography)
+================================================================
+*/
+.section {
+  position: relative;
+  padding: 100px 60px;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+  background: var(--universal-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0 10px;
+}
+
+.contact-title {
+  background: var(--universal-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.contact-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ================================================================
+3. NAVIGATION & MOBILE MENU
+================================================================
+*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(17, 17, 17, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(44, 44, 44, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.logo .logo-s { color: var(--logo-s-color); }
+.logo .logo-atyam { color: var(--logo-atyam-color); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--primary-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-links a:hover { color: var(--accent-color); }
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after { width: 100%; }
+
+/* Mobile Menu Layout */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%; 
+  height: 100vh;
+  width: 100vw;
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: right 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  overflow: hidden;
+}
+
+.mobile-menu.active { right: 0 !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 2001;
+  padding: 5px;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: var(--light-accent);
+  cursor: pointer;
+  z-index: 2002;
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  text-align: center;
+}
+
+.mobile-nav-links li { margin: 30px 0; }
+
+.mobile-nav-links a {
+  font-size: 2rem;
+  color: var(--title-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.1s ease-out;
+}
+
+/* ================================================================
+4. BUTTONS & INTERACTIVE ELEMENTS
+================================================================
+*/
+.btn {
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: var(--card-element-shadow);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.primary-btn {
+  background: linear-gradient(45deg, var(--accent-color), #e9a0f8);
+  color: #fff;
+  border: none;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(45deg, var(--dark-accent), #c786e6);
+  box-shadow: 0 5px 15px rgba(168, 167, 248, 0.5);
+  transform: translateY(-3px);
+}
+
+.outline-btn {
+  background: transparent;
+  color: var(--light-accent);
+  border: 1px solid var(--accent-color);
+}
+
+.outline-btn:hover {
+  background: var(--accent-color);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(168, 167, 248, 0.5);
+}
+
+/* Fix for sticky hover/click states on mobile */
+.btn:active, .btn:focus {
+  transform: translateY(0);
+  transition: all 0s !important;
+}
+
+.outline-btn:focus {
+  background: transparent;
+  color: var(--light-accent);
+}
+
+/* ================================================================
+5. RESPONSIVE MEDIA QUERIES
+================================================================
+*/
+@media (max-width: 768px) {
+  .section { padding: 60px 30px; }
+  
+  .navbar { padding: 15px 30px; }
+  
+  .nav-links { display: none; }
+  
+  .hamburger { display: flex; }
+
+  .mobile-nav-links a { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 40px 15px; }
+  
+  .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+}
+
+/* ================================================================
+   HERO SECTION — DARK PREMIUM UI
+   ================================================================ */
+
+/* --- 1. Main Layout --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 60px 80px;
+  background: linear-gradient(145deg, #0c0c0f, #0d0d15, #111129);
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1400px;
+  width: 100%;
+  align-items: center;
+}
+
+/* --- 2. Left Content (Typography) --- */
+.hero-content-left {
+  text-align: left;
+  color: #e6e6ff;
+  opacity: 0; /* Animation entry target */
+}
+
+.hero-content-left .intro {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.4rem;
+  color: #c5b2ff;
+}
+
+.hero-content-left h1 {
+  font-size: clamp(2.7rem, 6vw, 4.8rem);
+  background: linear-gradient(90deg, #b89aff, #9f7bff, #d0b6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.hero-content-left .sub-intro {
+  margin-top: 20px;
+  color: #d5d2ff;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Typing Effect & Cursor */
+#typingText {
+  background: linear-gradient(90deg, #ffb76b, #8ab6ff, #b794ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  color: #cfcaff;
+  font-weight: bold;
+  animation: blink 0.75s step-start infinite;
+}
+
+/* --- 3. DevOps Tools Styling --- */
+.constant-line {
+  margin-top: 10px;
+  font-size: 1.15rem;
+  color: #d7d4ff;
+  opacity: 0.95;
+}
+
+.constant-line .aws    { color: #ffb86c; } /* Warm Orange */
+.constant-line .docker { color: #6ecbff; } /* Ocean Blue */
+.constant-line .k8s    { color: #9d7bff; } /* Kubernetes Purple */
+.constant-line .cicd   { color: #d1a3ff; } /* Lavender */
+
+/* --- 4. Interactive Elements (Buttons) --- */
+.hero-buttons {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Primary Solid Button */
+.btn.hero-btn {
+  padding: 14px 34px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #8b70ff, #c2a4ff);
+  color: #111;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(120, 90, 255, 0.4);
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+.btn.hero-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 24px rgba(150, 120, 255, 0.45);
+}
+
+/* Outline Button */
+.btn.hero-btn-outline {
+  padding: 14px 34px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(180, 130, 255, 0.4);
+  color: #cfcaff;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+.btn.hero-btn-outline:hover {
+  background: rgba(165, 140, 255, 0.2);
+  transform: scale(1.06);
+  border-color: #c5a1ff;
+}
+
+/* --- 5. Right Content (Blob Image) --- */
+.hero-image-right .image-wrapper {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1/1;
+  border-radius: 40% 60% 50% 50% / 55% 45% 60% 40%;
+  overflow: hidden;
+  background: #2b2947;
+  border: 6px solid rgba(255, 255, 255, 0.06);
+}
+
+.hero-image-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* --- 6. Responsive Styles --- */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 60px;
+  }
+  
+  .hero-content-left {
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 30px;
+  }
+
+  .hero-image-right .image-wrapper {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+/* --- 7. Animations --- */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ================================================================
+   ABOUT SECTION — MODERN BIO & ORGANIC IMAGE
+   ================================================================ */
+
+/* --- 1. Main Container --- */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+/* --- 2. Image Wrapper (Organic Blob Shape) --- */
+.about-img-wrapper {
+  width: 340px;
+  height: 340px;
+  overflow: hidden;
+  /* Aesthetic organic blob shape */
+  border-radius: 38% 62% 57% 43% / 45% 38% 62% 55%;
+  border: 5px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 10px 30px rgba(130, 110, 255, 0.25);
+  backdrop-filter: blur(6px);
+  transition: transform 0.35s ease;
+}
+
+.about-img-wrapper:hover {
+  transform: scale(1.04) translateY(-10px);
+}
+
+.about-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- 3. Bio Content Box --- */
+.bio-content-wrapper {
+  flex: 1;
+  min-width: 320px;
+}
+
+.bio-box-enhanced {
+  padding: 25px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 18px rgba(150, 130, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.bio-box-enhanced:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(150, 130, 255, 0.25);
+}
+
+/* Typography */
+.bio-main-intro {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--primary-text);
+}
+
+.accent-college-name {
+  color: var(--light-accent);
+  font-weight: 600;
+}
+
+/* --- 4. Responsive Media Queries --- */
+@media (max-width: 768px) {
+  .about-container {
+    gap: 40px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-img-wrapper {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+  }
+
+  .bio-box-enhanced {
+    padding: 20px;
+    margin: 0 10px;
+  }
+
+  .bio-main-intro {
+    font-size: 1.05rem;
+    text-align: left; /* Maintains readability for longer text */
+  }
+}
+
+/* ================================================================
+   SKILLS SECTION — CONTROLLED FLEX LAYOUT
+   ================================================================ */
+
+/* --- 1. Base Skill Card Styling --- */
+.skill-card {
+  width: 180px;
+  padding: 22px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(120, 100, 255, 0.12);
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(150, 130, 255, 0.2);
+}
+
+.skill-icon {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--accent-color);
+}
+
+.skill-card h3 {
+  font-size: 1.1rem;
+  color: var(--title-color);
+}
+
+/* --- 2. Desktop Layout Structures --- */
+.skills-row {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+/* Specific Desktop Containers */
+.desktop-row-2, 
+.desktop-row-3,
+.desktop-center {
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-skills {
+  display: none;
+}
+
+/* --- 3. Animation State --- */
+.skill-anim {
+  position: relative;
+  will-change: transform, opacity;
+}
+
+/* --- 4. Responsive Media Queries --- */
+
+/* Tablet & Mobile Layout (Switch to Mobile Structure) */
+@media (max-width: 768px) {
+  /* Hide Desktop-specific rows */
+  .desktop-center,
+  .desktop-row-2,
+  .desktop-row-3 {
+    display: none;
+  }
+
+  /* Show Mobile-specific container */
+  .mobile-skills {
+    display: block;
+  }
+
+  .mobile-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+
+  /* Shrink cards for smaller screens */
+  .skill-card {
+    width: 120px;
+    padding: 15px 10px;
+    border-radius: 12px;
+  }
+
+  .skill-icon {
+    font-size: 1.8rem;
+  }
+
+  .skill-card h3 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Phones */
+@media (max-width: 480px) {
+  .skill-card {
+    width: 110px;
+  }
+}
+
+/* ================================================================
+   PROJECTS SECTION — HORIZONTAL SLIDER & CARDS
+   ================================================================ */
+
+/* --- 1. Slider Wrapper --- */
+.projects-slider-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- 2. Main Slider Container --- */
+.projects-slider {
+  display: flex;
+  gap: 30px;
+  padding-bottom: 20px;
+  overflow-x: auto;
+  
+  /* Smooth Scrolling & Snap behavior */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide Scrollbar for Chrome/Safari */
+.projects-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- 3. Individual Project Card --- */
+.project-card {
+  flex: 0 0 350px; /* Fixed width for slider consistency */
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  background: var(--secondary-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* --- 4. Project Card Content --- */
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-details {
+  padding: 20px;
+  text-align: left;
+}
+
+.project-name {
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.project-date {
+  font-size: 0.9rem;
+  color: var(--primary-text);
+}
+
+/* --- 5. Navigation Indicators (Dots) --- */
+.dot-indicators {
+  display: none; /* Hidden by default; typically shown via Media Queries */
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 10px;
+  height: 10px;
+}
+
+.dot-indicators .dot {
+  width: 30px;
+  height: 3px;
+  background-color: var(--primary-text);
+  opacity: 0.3;
+  border-radius: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot-indicators .dot.active {
+  opacity: 1;
+  background-color: var(--accent-color);
+  transform: scaleY(1.5);
+}
+/* =================================== */
+/* 9. CERTIFICATES SECTION             */
+/* =================================== */
+
+/* --- Slider Wrapper --- */
+.certificates-slider-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Slider Container --- */
+.certificates-slider {
+  display: flex;
+  gap: 30px;
+  padding-bottom: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide Scrollbar for Chrome, Safari, and Opera */
+.certificates-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Certificate Card --- */
+.certificate-card {
+  flex: 0 0 350px; /* Fixed width for consistent slider behavior */
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: center;
+  background: var(--secondary-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* --- Certificate Image --- */
+.certificate-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* --- Certificate Text Details --- */
+.certificate-details {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.certificate-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: 5px;
+}
+
+.certificate-issuer {
+  font-size: 0.9rem;
+  color: var(--light-accent);
+  margin-bottom: 10px;
+}
+
+.certificate-date {
+  font-size: 0.9rem;
+  color: var(--primary-text);
+  margin-top: auto;
+}
+
+/* --- Action Elements --- */
+.view-cert-btn {
+  margin-top: 15px;
+  text-align: left;
+}
+
+/* ================================================================
+   10. EDUCATION SECTION — PREMIUM GLASSMORPHIC DESIGN
+================================================================ */
+
+.education-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  padding-top: 20px;
+}
+
+.edu-card {
+  position: relative;
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 35px rgba(80, 60, 150, 0.25);
+  backdrop-filter: blur(14px);
+  text-align: left;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+}
+
+/* Ambient glow behind card */
+.edu-card .edu-glow {
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(170, 130, 255, 0.25),
+    rgba(110, 80, 200, 0.05)
+  );
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+  z-index: 0;
+}
+
+/* Hover effect */
+.edu-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 18px 45px rgba(160, 130, 255, 0.4);
+}
+
+.edu-card:hover .edu-glow {
+  opacity: 1;
+}
+
+/* Content */
+.edu-card h3 {
+  color: var(--title-color);
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.edu-card p {
+  color: var(--primary-text);
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.edu-year {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  position: relative;
+  z-index: 1;
+}
+
+/* Entry animation state */
+.edu-anim {
+  opacity: 0;
+  transform: translateY(40px) scale(0.8);
+}
+/* Education initial stacked state */
+.edu-anim {
+  opacity: 0;
+  transform: scale(0.2);
+  position: relative;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 5;
+}
+
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+  .edu-card {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .edu-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .edu-card p {
+    font-size: 0.95rem;
+  }
+
+  .edu-year {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ================================================================
+   11. CONTACT SECTION 
+   ================================================================ */
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* --- FIX: Download CV Button Adjustment --- */
+.contact-left .download-cv {
+  width: fit-content;        /* Border now hugs the text */
+  padding: 10px 24px;        /* Balanced padding */
+  font-size: 0.95rem;        /* Proportional text size */
+  align-self: flex-start;    /* Keeps it aligned to the left */
+  margin-top: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;       /* Prevents text from wrapping */
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: var(--primary-text);
+}
+
+.contact-detail i {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+/* --- Social Icons --- */
+.contact-social-icons {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0 25px;
+  justify-content: flex-start;
+}
+
+.contact-social-icons a {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--primary-text);
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  box-shadow: var(--card-element-shadow);
+}
+
+.contact-social-icons a:hover {
+  color: #fff;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* --- Form Styling --- */
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--title-color);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-right input:focus,
+.contact-right textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(168, 167, 248, 0.4);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================================================================
+   MOBILE RESPONSIVE UPDATES (FIXED FOR CENTERING)
+   ================================================================ */
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .contact-left {
+    align-items: center; /* Centers text and icons in the left column */
+  }
+
+  .contact-left .download-cv {
+    align-self: center;  /* Ensures Download CV button is centered */
+    margin-left: 0;
+  }
+
+  .contact-detail {
+    justify-content: center; /* Centers individual contact items */
+  }
+
+  .contact-social-icons {
+    justify-content: center; /* Centers social media circles */
+  }
+
+  /* --- FIX: Centering the Form and Send Message Button --- */
+  .contact-right form {
+    align-items: center;    /* Centers all inputs and the Submit Button horizontally */
+  }
+
+  .contact-right input,
+  .contact-right textarea {
+    max-width: 100%;        /* Ensures inputs don't overflow */
+  }
+
+  .submit-btn {
+    width: 100%;            /* Makes button full-width on mobile for better UX */
+    max-width: 350px;       /* Prevents it from getting awkwardly wide on tablets */
+    margin-left: auto;      /* Backup centering logic */
+    margin-right: auto;
+  }
+}
+/* ================================================================
+   12. FOOTER
+   ================================================================ */
+
+footer {
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  text-align: center;
+  padding: 25px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ================================================================
+   13. RESPONSIVE DESIGN (MEDIA QUERIES)
+   ================================================================ */
+
+/* --- Desktop Enhancements (1025px+) --- */
+@media (min-width: 1025px) {
+  .projects-slider,
+  .certificates-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    overflow-x: visible;
+  }
+
+  .project-card:hover,
+  .certificate-card:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 0 30px var(--accent-color), 0 15px 30px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* --- Tablets & Small Laptops (1024px) --- */
+@media (max-width: 1024px) {
+  .certificate-card {
+    flex: 0 0 320px;
+  }
+}
+
+/* --- Standard Mobile (768px) --- */
+@media (max-width: 768px) {
+  .section { padding: 60px 30px; }
+  
+  /* Hero & Layout Stacking */
+  .hero-container { grid-template-columns: 1fr; gap: 40px; }
+  .hero-image-right { order: 1; max-width: 350px; margin: 0 auto; }
+  .hero-content-left { order: 2; text-align: center; }
+  .hero-buttons { justify-content: center; }
+  .btn { width: 48%; max-width: 250px; }
+
+  /* About Section Fixes */
+  .about-container { flex-direction: column; gap: 40px; }
+  .bio-main-intro { text-align: left; font-size: 1.05rem; }
+
+  /* Grid to Slider Conversion */
+  .projects-slider, .certificates-slider { padding: 0 10px; gap: 20px; }
+  .dot-indicators { display: flex; }
+
+  /* Contact Mobile Alignment */
+  .contact-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .contact-left { align-items: center; }
+  .contact-social-icons { justify-content: center; }
+  .contact-detail { justify-content: center; }
+  
+  .contact-right input, 
+  .contact-right textarea { max-width: 100%; }
+}
+
+/* --- Small Mobile (480px) --- */
+@media (max-width: 480px) {
+  .section { padding: 40px 15px; }
+  .section-title { margin-bottom: 30px; }
+  
+  .btn { width: 100%; }
+  .about-img { width: 280px; height: 280px; }
+  
+  .certificate-card { flex: 0 0 90%; }
+  
+  .contact-social-icons a { width: 38px; height: 38px; font-size: 0.9rem; }
+}

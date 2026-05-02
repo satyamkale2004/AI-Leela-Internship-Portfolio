@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satyam Kale - Full Stack Developer Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- ===================== HEADER & NAVBAR ===================== -->
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <span class="logo-s">S</span><span class="logo-atyam">atyam</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Hamburger for Mobile -->
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Fullscreen Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#certificates" class="mobile-link">Certificates</a></li>
+      <li><a href="#education" class="mobile-link">Education</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== HERO SECTION ===================== -->
+<section id="home" class="hero">
+  <div class="hero-container">
+
+    <!-- Left Text Area -->
+    <div class="hero-content-left hero-text-anim">
+      <p class="intro">Hello, I'm</p>
+      <h1>Satyam Kale</h1>
+
+      <!-- Typing Effect -->
+      <p class="sub-intro">
+        <span id="typingText"></span><span class="cursor">|</span>
+      </p>
+
+      <!-- Static Line -->
+      <p class="sub-intro constant-line">
+        Building scalable systems with 
+        <span class="aws">AWS</span>, 
+        <span class="docker">Docker</span>, 
+        <span class="k8s">Kubernetes</span> & 
+        <span class="cicd">CI/CD</span>.
+      </p>
+
+      <!-- Buttons -->
+      <div class="hero-buttons">
+        <a href="#projects" class="btn hero-btn">See My Work</a>
+        <a href="cv/Satyam_Kale_Resume.pdf" download="Satyam_Kale_Resume.pdf" class="btn hero-btn-outline download-cv">Download CV</a>
+      </div>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="hero-image-right hero-img-anim">
+      <div class="image-wrapper">
+        <img src="satyamk.JPG" alt="Satyam Kale" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== ABOUT SECTION ===================== -->
+<section id="about" class="section about">
+  <h2 class="section-title">About Me</h2>
+
+  <div class="about-container">
+    
+    <!-- Profile Image -->
+    <div class="about-img about-anim-img">
+      <div class="about-img-wrapper">
+        <img src="satyamk.JPG" alt="Satyam Kale" />
+      </div>
+    </div>
+
+    <!-- Bio Text -->
+    <div class="bio-content-wrapper about-anim-text">
+      <div class="bio-box-enhanced">
+        <p class="bio-main-intro">
+          I'm <strong>Satyam Kale</strong>, a passionate <strong>Cloud & DevOps engineer</strong>. Also have a strong foundation in <strong>web development</strong>. 
+          I'm currently pursuing MCA from 
+          <span class="accent-college-name">MET Bhujbal Knowledge City, Nashik</span>.
+        </p>
+
+        <p class="bio-main-intro">
+          I focus on Cloud Computing & DevOps using 
+          <strong>AWS</strong>, <strong>Linux</strong>, <strong>Docker</strong>, 
+          <strong>Kubernetes</strong>, <strong>Terraform</strong>, <strong>Git/GitHub</strong>, 
+          and <strong>CI/CD pipelines</strong>.
+        </p>
+
+        <p class="bio-main-intro">
+          I love building automated workflows and scalable systems with clean, efficient, and user-focused designs.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" class="section skills">
+  <h2 class="section-title">Skills & Expertise</h2>
+
+  <!-- Center Top Skill -->
+  <div class="skills-row center-row desktop-center">
+    <div class="skill-card skill-anim"><i class="fab fa-linux skill-icon"></i><h3>Linux</h3></div>
+  </div>
+
+  <!-- Desktop Row 2 -->
+  <div class="skills-row desktop-row-2">
+    <div class="skill-card skill-anim"><i class="fab fa-aws skill-icon"></i><h3>AWS</h3></div>
+    <div class="skill-card skill-anim"><i class="fab fa-docker skill-icon"></i><h3>Docker</h3></div>
+    <div class="skill-card skill-anim"><i class="fas fa-network-wired skill-icon"></i><h3>Kubernetes</h3></div>
+    <div class="skill-card skill-anim"><i class="fas fa-sync skill-icon"></i><h3>CI / CD</h3></div>
+    <div class="skill-card skill-anim"><i class="fab fa-git-alt skill-icon"></i><h3>Git</h3></div>
+  </div>
+
+  <!-- Desktop Row 3 -->
+  <div class="skills-row desktop-row-3">
+    <div class="skill-card skill-anim"><i class="fab fa-github skill-icon"></i><h3>GitHub</h3></div>
+    <div class="skill-card skill-anim"><i class="fas fa-sitemap skill-icon"></i><h3>Networking</h3></div>
+    <div class="skill-card skill-anim"><i class="fas fa-terminal skill-icon"></i><h3>Scripting</h3></div>
+    <div class="skill-card skill-anim"><i class="fas fa-cubes skill-icon"></i><h3>Terraform</h3></div>
+  </div>
+
+  <!-- Mobile Version -->
+  <div class="mobile-skills">
+
+    <div class="skills-row mobile-row">
+      <div class="skill-card skill-anim"><i class="fab fa-linux skill-icon"></i><h3>Linux</h3></div>
+      <div class="skill-card skill-anim"><i class="fab fa-aws skill-icon"></i><h3>AWS</h3></div>
+    </div>
+
+    <div class="skills-row mobile-row">
+      <div class="skill-card skill-anim"><i class="fab fa-docker skill-icon"></i><h3>Docker</h3></div>
+      <div class="skill-card skill-anim"><i class="fas fa-network-wired skill-icon"></i><h3>Kubernetes</h3></div>
+      <div class="skill-card skill-anim"><i class="fas fa-sync skill-icon"></i><h3>CI/CD</h3></div>
+    </div>
+
+    <div class="skills-row mobile-row">
+      <div class="skill-card skill-anim"><i class="fab fa-git-alt skill-icon"></i><h3>Git</h3></div>
+      <div class="skill-card skill-anim"><i class="fab fa-github skill-icon"></i><h3>GitHub</h3></div>
+      <div class="skill-card skill-anim"><i class="fas fa-sitemap skill-icon"></i><h3>Networking</h3></div>
+    </div>
+
+    <div class="skills-row mobile-row">
+      <div class="skill-card skill-anim"><i class="fas fa-cloud skill-icon"></i><h3>Cloud</h3></div>
+      <div class="skill-card skill-anim"><i class="fas fa-terminal skill-icon"></i><h3>Python</h3></div>
+      <div class="skill-card skill-anim"><i class="fas fa-cubes skill-icon"></i><h3>Terraform</h3></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="section">
+  <h2 class="section-title">My Projects</h2>
+
+  <div class="projects-slider-wrapper">
+    <div id="projectsSlider" class="projects-slider">
+
+      <!-- Project 1 -->
+      <a href="https://github.com/satyamkale2004/Spotify_Data_Analysis" target="_blank" class="project-card">
+        <img src="Spotify_Dashboard.PNG" alt="Spotify Dashboard" />
+        <div class="project-details">
+          <h3>Spotify Dashboard</h3>
+          <p class="project-date">July - 2025</p>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="https://github.com/your-username/project-two-repo" target="_blank" class="project-card">
+        <img src="portfolio.PNG" alt="Portfolio Project" />
+        <div class="project-details">
+          <h3>Portfolio</h3>
+          <p class="project-date">Sep - 2025</p>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="#" target="_blank" class="project-card">
+        <img src="path/to/image3.jpg" alt="Coming Soon" />
+        <div class="project-details">
+          <h3>Coming Soon</h3>
+          <p class="project-date">Mar - 2024</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div id="dotIndicators" class="dot-indicators"></div>
+</section>
+
+<!-- ===================== CERTIFICATES ===================== -->
+<section id="certificates" class="section">
+  <h2 class="section-title">Certificates</h2>
+
+  <div class="certificates-slider-wrapper">
+    <div id="certificatesSlider" class="certificates-slider">
+      
+      <!-- Certificate 1 -->
+      <div class="certificate-card">
+        <img src="MKCL_Course.JPG" alt="MKCL Certificate" />
+        <div class="certificate-details">
+          <div>
+            <h3>Python Fundamentals & Programming Basics</h3>
+            <p class="certificate-issuer">MKCL</p>
+          </div>
+          <p class="certificate-date">Issued: July 2024</p>
+          <div class="view-cert-btn">
+            <a href="MKCL-Course.PDF" target="_blank" class="btn outline-btn">View Credential</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate 2 -->
+      <div class="certificate-card">
+        <img src="path/to/cert2.png" alt="Python Certificate" />
+        <div class="certificate-details">
+          <div>
+            <h3>Python Programming: Advanced</h3>
+            <p class="certificate-issuer">Coursera</p>
+          </div>
+          <p class="certificate-date">Issued: March 2024</p>
+          <div class="view-cert-btn">
+            <a href="path/to/cert2.pdf" target="_blank" class="btn outline-btn">View Credential</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate 3 -->
+      <div class="certificate-card">
+        <img src="path/to/cert3.png" alt="Database Certificate" />
+        <div class="certificate-details">
+          <div>
+            <h3>SQL & Database Management</h3>
+            <p class="certificate-issuer">freeCodeCamp</p>
+          </div>
+          <p class="certificate-date">Issued: Jan 2024</p>
+          <div class="view-cert-btn">
+            <a href="path/to/cert3.pdf" target="_blank" class="btn outline-btn">View Credential</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="certificateDotIndicators" class="dot-indicators"></div>
+</section>
+
+<!-- ===================== EDUCATION ===================== -->
+<section id="education" class="section education">
+  <h2 class="section-title">Education</h2>
+
+  <div class="education-container">
+
+    <div class="edu-card edu-anim">
+      <div class="edu-glow"></div>
+      <h3>Pursuing MCA</h3>
+      <p>MET Bhujbal Knowledge City, Nashik</p>
+      <span class="edu-year">2025 - 2027</span>
+    </div>
+
+    <div class="edu-card edu-anim">
+      <div class="edu-glow"></div>
+      <h3>Bachelor of Computer Science (BCS)</h3>
+      <p>KKW ACS & CS, Panchvati, Nashik</p>
+      <span class="edu-year">2022-2025</span>
+    </div>
+
+    <div class="edu-card edu-anim">
+      <div class="edu-glow"></div>
+      <h3>11th & 12th Science</h3>
+      <p>KKW College, Pimpalgaon (B.)</p>
+      <span class="edu-year">2020 – 2022</span>
+    </div>
+
+    <div class="edu-card edu-anim">
+      <div class="edu-glow"></div>
+      <h3>Schooling</h3>
+      <p>Pimpalgaon Highschool Pimpalgaon (B.)</p>
+      <span class="edu-year">2014 – 2020</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="section contact">
+  <div class="contact-container">
+
+    <!-- Left Info -->
+    <div class="contact-left">
+      <h2 class="contact-title">Get In Touch</h2>
+
+      <p class="contact-detail"><i class="fas fa-phone-alt"></i> +91-7517993483</p>
+      <p class="contact-detail"><i class="fas fa-envelope"></i> satyamkale02@gmail.com</p>
+
+      <!-- Social Icons -->
+      <div class="contact-social-icons">
+        <a href="mailto:satyamkale02@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/satyam-kale-6b0a312b0" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/satyamkale2004" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://leetcode.com/u/Satyamkale2004/" target="_blank"><i class="fas fa-laptop-code"></i></a>
+        <a href="https://instagram.com/your-username" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+917517993483"><i class="fas fa-phone"></i></a>
+      </div>
+
+      <a href="cv/Satyam_Kale_Resume.pdf" download class="btn outline-btn download-cv">Download CV</a>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-right">
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit" class="btn primary-btn submit-btn">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <p>© 2025 Satyam Kale. All Rights Reserved.</p>
+</footer>
+
+<!-- ===================== JS FILES ===================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
